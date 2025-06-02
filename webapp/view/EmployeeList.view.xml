@@ -1,0 +1,139 @@
+<mvc:View xmlns:filterbar="sap.ui.comp.filterbar" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sapips.training.employeeapp.controller.EmployeeList">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <!-- Filters -->
+            <filterbar:FilterBar id="filterEmployeeList" showFilterConfiguration="true" persistencyKey="EmployeeListFilter"
+            useToolbar="true" search=".onSearch">
+                <filterbar:filterGroupItems>
+                    <filterbar:FilterGroupItem
+                    id="fgiEmployeeID"
+                    name="EmployeeID"
+                    label="{i18n>employeeID}"
+                    groupName="default"
+                    visibleInFilterBar="true">
+                    <filterbar:control>
+                        <Input id="empIdInput"/>
+                    </filterbar:control>
+                    </filterbar:FilterGroupItem>
+
+                    <filterbar:FilterGroupItem
+                    id="fgiFirstName"
+                    name="FirstName"
+                    label="{i18n>firstName}"
+                    groupName="default"
+                    visibleInFilterBar="true">
+                    <filterbar:control>
+                        <Input id="firstNameInput"/>
+                    </filterbar:control>
+                    </filterbar:FilterGroupItem>
+
+                    <filterbar:FilterGroupItem
+                    id="fgiLastName"
+                    name="LastName"
+                    label="{i18n>lastName}"
+                    groupName="default"
+                    visibleInFilterBar="true">
+                    <filterbar:control>
+                        <Input id="lastNameInput"/>
+                    </filterbar:control>
+                    </filterbar:FilterGroupItem>
+
+                    <filterbar:FilterGroupItem
+                    id="fgiAge"
+                    name="Age"
+                    label="{i18n>age}"
+                    groupName="default"
+                    visibleInFilterBar="true">
+                    <filterbar:control>
+                        <Input id="ageInput" type="Number"/>
+                    </filterbar:control>
+                    </filterbar:FilterGroupItem>
+
+                    <filterbar:FilterGroupItem
+                    id="fgiDateOfHire"
+                    name="DateOfHire"
+                    label="{i18n>dateHire}"
+                    groupName="default"
+                    visibleInFilterBar="true">
+                    <filterbar:control>
+                        <DatePicker id="dateOfHireInput"/>
+                    </filterbar:control>
+                    </filterbar:FilterGroupItem>
+
+                    <filterbar:FilterGroupItem
+                    id="fgiCareerLevel"
+                    name="CareerLevel"
+                    label="{i18n>careerLevel}"
+                    groupName="default"
+                    visibleInFilterBar="true">
+                    <filterbar:control>
+                        <Input id="careerLevelInput"/>
+                    </filterbar:control>
+                    </filterbar:FilterGroupItem>
+
+                    <filterbar:FilterGroupItem
+                    id="fgiCurrentProject"
+                    name="CurrentProject"
+                    label="{i18n>currentProj}"
+                    groupName="default"
+                    visibleInFilterBar="true">
+                    <filterbar:control>
+                        <Input id="currentProjectInput"/>
+                    </filterbar:control>
+                    </filterbar:FilterGroupItem>
+                </filterbar:filterGroupItems>
+            </filterbar:FilterBar>
+        </content>
+        <Table id="tblEmployeeList" items="{/Employees}" mode="MultiSelect">
+        <!-- Header Toolbar -->
+        <headerToolbar>
+            <Toolbar id="tbEmployeeList">
+            <Text id="txtEmployeeList" text="{i18n>employees}" width="10vw"/>
+            <ToolbarSpacer id="tbSpacer" width="48vw"/>
+            <!-- <SearchField id="srchEmployeeList" width="10vw"/> -->
+            <Button id="btnAdd" text="{i18n>add}"/>
+            <Button id="btnDelete" text="{i18n>delete}" type="Reject"/>
+            <content/>
+            </Toolbar>
+        </headerToolbar>
+        <!-- Column Information -->
+        <columns>
+            <Column id="clmEmpID">
+                <Text id="txtEmpID" text="{i18n>employeeID}"/>
+            </Column>
+            <Column id="clmFName">
+                <Text id="txtFName" text="{i18n>firstName}"/>
+            </Column>
+            <Column id="clmLName">
+                <Text id="txtLName" text="{i18n>lastName}"/>
+            </Column>
+            <Column id="clmAge">
+                <Text id="txtAge" text="{i18n>age}"/>
+            </Column>
+            <Column id="clmDateHire">
+                <Text id="txtDateHire" text="{i18n>dateHire}"/>
+            </Column>
+            <Column id="clmCareerLvl">
+                <Text id="txtCareerLvl" text="{i18n>careerLevel}"/>
+            </Column>
+            <Column id="clmCurrentProj">
+                <Text id="txtCurrentProj" text="{i18n>currentProj}"/>
+            </Column>
+        </columns>
+        <!-- Column Items -->
+        <items>
+            <ColumnListItem id="listEmployees" vAlign="Middle" type="Navigation">
+                <cells>
+                    <Text id="colEmpID" text="{EmployeeID}"/>
+                    <Text id="colFName" text="{FirstName}"/>
+                    <Text id="colLName" text="{LastName}"/>
+                    <Text id="colAge" text="{Age}"/>
+                    <Text id="colDateHire" text="{DateHire}"/>
+                    <Text id="colCareerLvl" text="CL{CareerLevel}"/>
+                    <Text id="colCurrentProj" text="{CurrentProject}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+        </Table>
+    </Page>
+</mvc:View>

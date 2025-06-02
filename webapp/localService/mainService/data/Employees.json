@@ -1,0 +1,182 @@
+[
+    {
+        "FirstName": "FirstName1",
+        "LastName": "LastName1",
+        "Age": 26,
+        "DateHire": "01/01/2025",
+        "CareerLevel": "1",
+        "CurrentProject": "CurrentProject1",
+        "EmployeeID": "10001"
+    },
+    {
+        "FirstName": "FirstName2",
+        "LastName": "LastName2",
+        "Age": 22,
+        "DateHire": "01/02/2025",
+        "CareerLevel": "2",
+        "CurrentProject": "CurrentProject2",
+        "EmployeeID": "10002"
+    },
+    {
+        "FirstName": "FirstName3",
+        "LastName": "LastName3",
+        "Age": 29,
+        "DateHire": "01/03/2025",
+        "CareerLevel": "3",
+        "CurrentProject": "CurrentProject3",
+        "EmployeeID": "10003"
+    },
+    {
+        "FirstName": "FirstName4",
+        "LastName": "LastName4",
+        "Age": 65,
+        "DateHire": "01/04/2025",
+        "CareerLevel": "4",
+        "CurrentProject": "CurrentProject4",
+        "EmployeeID": "10004"
+    },
+    {
+        "FirstName": "FirstName5",
+        "LastName": "LastName5",
+        "Age": 31,
+        "DateHire": "01/05/2025",
+        "CareerLevel": "5",
+        "CurrentProject": "CurrentProject5",
+        "EmployeeID": "10005"
+    },
+    {
+        "FirstName": "FirstName6",
+        "LastName": "LastName6",
+        "Age": 15,
+        "DateHire": "01/06/2025",
+        "CareerLevel": "6",
+        "CurrentProject": "CurrentProject6",
+        "EmployeeID": "10006"
+    },
+    {
+        "FirstName": "FirstName7",
+        "LastName": "LastName7",
+        "Age": 32,
+        "DateHire": "01/07/2025",
+        "CareerLevel": "7",
+        "CurrentProject": "CurrentProject7",
+        "EmployeeID": "10007"
+    },
+    {
+        "FirstName": "FirstName8",
+        "LastName": "LastName8",
+        "Age": 79,
+        "DateHire": "01/08/2025",
+        "CareerLevel": "8",
+        "CurrentProject": "CurrentProject8",
+        "EmployeeID": "10008"
+    },
+    {
+        "FirstName": "FirstName9",
+        "LastName": "LastName9",
+        "Age": 25,
+        "DateHire": "01/09/2025",
+        "CareerLevel": "9",
+        "CurrentProject": "CurrentProject9",
+        "EmployeeID": "10009"
+    },
+    {
+        "FirstName": "FirstName10",
+        "LastName": "LastName10",
+        "Age": 25,
+        "DateHire": "01/10/2025",
+        "CareerLevel": "10",
+        "CurrentProject": "CurrentProject10",
+        "EmployeeID": "10010"
+    },
+    {
+        "FirstName": "FirstName11",
+        "LastName": "LastName11",
+        "Age": 57,
+        "DateHire": "01/11/2025",
+        "CareerLevel": "11",
+        "CurrentProject": "CurrentProject11",
+        "EmployeeID": "10011"
+    },
+    {
+        "FirstName": "FirstName12",
+        "LastName": "LastName12",
+        "Age": 35,
+        "DateHire": "01/12/2025",
+        "CareerLevel": "12",
+        "CurrentProject": "CurrentProject12",
+        "EmployeeID": "10012"
+    },
+    {
+        "FirstName": "FirstName13",
+        "LastName": "LastName13",
+        "Age": 50,
+        "DateHire": "01/13/2025",
+        "CareerLevel": "13",
+        "CurrentProject": "CurrentProject13",
+        "EmployeeID": "10013"
+    },
+    {
+        "FirstName": "FirstName14",
+        "LastName": "LastName14",
+        "Age": 73,
+        "DateHire": "01/14/2025",
+        "CareerLevel": "14",
+        "CurrentProject": "CurrentProject14",
+        "EmployeeID": "10014"
+    },
+    {
+        "FirstName": "FirstName15",
+        "LastName": "LastName15",
+        "Age": 44,
+        "DateHire": "01/15/2025",
+        "CareerLevel": "15",
+        "CurrentProject": "CurrentProject15",
+        "EmployeeID": "10015"
+    },
+    {
+        "FirstName": "FirstName16",
+        "LastName": "LastName16",
+        "Age": 21,
+        "DateHire": "01/16/2025",
+        "CareerLevel": "16",
+        "CurrentProject": "CurrentProject16",
+        "EmployeeID": "10016"
+    },
+    {
+        "FirstName": "FirstName17",
+        "LastName": "LastName17",
+        "Age": 25,
+        "DateHire": "01/17/2025",
+        "CareerLevel": "17",
+        "CurrentProject": "CurrentProject17",
+        "EmployeeID": "10017"
+    },
+    {
+        "FirstName": "FirstName18",
+        "LastName": "LastName18",
+        "Age": 22,
+        "DateHire": "01/18/2025",
+        "CareerLevel": "18",
+        "CurrentProject": "CurrentProject18",
+        "EmployeeID": "10018"
+    },
+    {
+        "FirstName": "FirstName19",
+        "LastName": "LastName19",
+        "Age": 71,
+        "DateHire": "01/19/2025",
+        "CareerLevel": "19",
+        "CurrentProject": "CurrentProject19",
+        "EmployeeID": "10019"
+    },
+    {
+        "FirstName": "FirstName20",
+        "LastName": "LastName20",
+        "Age": 65,
+        "DateHire": "01/20/2025",
+        "CareerLevel": "20",
+        "CurrentProject": "CurrentProject20",
+        "EmployeeID": "10020"
+    }
+]

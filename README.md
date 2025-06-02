@@ -1,3 +1,10 @@
+# case-study
+Setup:
+1. Go to /projects directory
+2. Open a terminal
+3. Type: git clone https://github.com/acnandre/case-study.git
+
+
 ## Application Details
 |               |
 | ------------- |
@@ -38,6 +45,3 @@ Case Study Application for Group 3 SAPUI5 FY25 Q3
 #### Pre-requisites:
 
 1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
-
-
-# case-study

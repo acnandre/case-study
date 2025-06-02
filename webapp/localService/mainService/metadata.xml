@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+  <edmx:DataServices m:DataServiceVersion="1.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="EmployeeData" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+
+      <!-- Employee Entity -->
+      <EntityType Name="Employee">
+        <Key>
+          <PropertyRef Name="EmployeeID" />
+        </Key>
+        <Property Name="EmployeeID" Type="Edm.String" MaxLength="40" Nullable="false" />
+        <Property Name="FirstName" Type="Edm.String" MaxLength="40" Nullable="false" />
+        <Property Name="LastName" Type="Edm.String" MaxLength="40" />
+        <Property Name="Age" Type="Edm.Int16" MaxLength="2"/>
+        <Property Name="DateHire" Type="Edm.String" />
+        <Property Name="CareerLevel" Type="Edm.String" MaxLength="2" />
+        <Property Name="CurrentProject" Type="Edm.String" MaxLength="40" />
+        <NavigationProperty Name="Skills" Relationship="EmployeeData.Employee_Skills" FromRole="Employee" ToRole="Skill" />
+        <NavigationProperty Name="Project" Relationship="EmployeeData.Employee_Project" FromRole="Employee" ToRole="Project" />
+        <NavigationProperty Name="Career" Relationship="EmployeeData.Employee_Career" FromRole="Employee" ToRole="Career" />
+      </EntityType>
+
+      <!-- ProjectList Entity -->
+      <EntityType Name="ProjectList">
+        <Key>
+          <PropertyRef Name="ProjectID" />
+        </Key>
+        <Property Name="ProjectID" Type="Edm.String" MaxLength="10" Nullable="false" />
+        <Property Name="ProjectName" Type="Edm.String" MaxLength="40" />
+        <NavigationProperty Name="Employees" Relationship="EmployeeData.Employee_Project" FromRole="Project" ToRole="Employee" />
+      </EntityType>
+
+      <!-- Skill Entity -->
+      <EntityType Name="Skill">
+        <Key>
+          <PropertyRef Name="EmployeeID" />
+          <PropertyRef Name="SkillID" />
+        </Key>
+        <Property Name="EmployeeID" Type="Edm.String" MaxLength="40" Nullable="false" />
+        <Property Name="SkillID" Type="Edm.String" MaxLength="10" Nullable="false" />
+        <Property Name="ProficiencyID" Type="Edm.String" MaxLength="2" />
+        <Property Name="SkillName" Type="Edm.String" MaxLength="20" />
+        <Property Name="ProficiencyLevel" Type="Edm.String" MaxLength="2" />
+        <NavigationProperty Name="SkillDetail" Relationship="EmployeeData.Skill_SkillList" FromRole="Skill" ToRole="SkillList" />
+        <NavigationProperty Name="ProficiencyDetail" Relationship="EmployeeData.Skill_Proficiency" FromRole="Skill" ToRole="Proficiency" />
+        <NavigationProperty Name="Employee" Relationship="EmployeeData.Employee_Skills" FromRole="Skill" ToRole="Employee" />
+      </EntityType>
+
+      <!-- ProficiencyList Entity -->
+      <EntityType Name="ProficiencyList">
+        <Key>
+          <PropertyRef Name="ProficiencyID" />
+        </Key>
+        <Property Name="ProficiencyID" Type="Edm.String" MaxLength="10" Nullable="false" />
+        <Property Name="ProficiencyLevel" Type="Edm.String" MaxLength="2" />
+        <NavigationProperty Name="Skills" Relationship="EmployeeData.Skill_Proficiency" FromRole="Proficiency" ToRole="Skill" />
+      </EntityType>
+
+      <!-- SkillList Entity -->
+      <EntityType Name="SkillList">
+        <Key>
+          <PropertyRef Name="SkillID" />
+        </Key>
+        <Property Name="SkillID" Type="Edm.String" MaxLength="10" Nullable="false" />
+        <Property Name="SkillName" Type="Edm.String" MaxLength="20" />
+        <NavigationProperty Name="Skills" Relationship="EmployeeData.Skill_SkillList" FromRole="SkillList" ToRole="Skill" />
+      </EntityType>
+
+      <!-- CareerList Entity -->
+      <EntityType Name="CareerList">
+        <Key>
+          <PropertyRef Name="CareerID" />
+        </Key>
+        <Property Name="CareerID" Type="Edm.String" MaxLength="10" Nullable="false" />
+        <Property Name="CareerLevel" Type="Edm.String" MaxLength="2" />
+        <NavigationProperty Name="Employees" Relationship="EmployeeData.Employee_Career" FromRole="Career" ToRole="Employee" />
+      </EntityType>
+
+      <!-- Associations -->
+      <Association Name="Employee_Skills">
+        <End Role="Employee" Type="EmployeeData.Employee" Multiplicity="1" />
+        <End Role="Skill" Type="EmployeeData.Skill" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Employee">
+            <PropertyRef Name="EmployeeID" />
+          </Principal>
+          <Dependent Role="Skill">
+            <PropertyRef Name="EmployeeID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+
+      <Association Name="Skill_SkillList">
+        <End Role="SkillList" Type="EmployeeData.SkillList" Multiplicity="1" />
+        <End Role="Skill" Type="EmployeeData.Skill" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="SkillList">
+            <PropertyRef Name="SkillID" />
+          </Principal>
+          <Dependent Role="Skill">
+            <PropertyRef Name="SkillID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+
+      <Association Name="Skill_Proficiency">
+        <End Role="Proficiency" Type="EmployeeData.ProficiencyList" Multiplicity="1" />
+        <End Role="Skill" Type="EmployeeData.Skill" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Proficiency">
+            <PropertyRef Name="ProficiencyID" />
+          </Principal>
+          <Dependent Role="Skill">
+            <PropertyRef Name="ProficiencyID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+
+      <Association Name="Employee_Project">
+        <End Role="Employee" Type="EmployeeData.Employee" Multiplicity="*" />
+        <End Role="Project" Type="EmployeeData.ProjectList" Multiplicity="1" />
+      </Association>
+
+      <Association Name="Employee_Career">
+        <End Role="Employee" Type="EmployeeData.Employee" Multiplicity="*" />
+        <End Role="Career" Type="EmployeeData.CareerList" Multiplicity="1" />
+      </Association>
+
+      <!-- Entity Container -->
+      <EntityContainer Name="EmployeeContainer" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Employees" EntityType="EmployeeData.Employee" />
+        <EntitySet Name="Projects" EntityType="EmployeeData.ProjectList" />
+        <EntitySet Name="Skills" EntityType="EmployeeData.Skill" />
+        <EntitySet Name="Proficiencies" EntityType="EmployeeData.ProficiencyList" />
+        <EntitySet Name="SkillCatalog" EntityType="EmployeeData.SkillList" />
+        <EntitySet Name="Careers" EntityType="EmployeeData.CareerList" />
+        <AssociationSet Name="EmployeeSkills" Association="EmployeeData.Employee_Skills">
+          <End Role="Employee" EntitySet="Employees" />
+          <End Role="Skill" EntitySet="Skills" />
+        </AssociationSet>
+        <AssociationSet Name="SkillSkillList" Association="EmployeeData.Skill_SkillList">
+          <End Role="SkillList" EntitySet="SkillCatalog" />
+          <End Role="Skill" EntitySet="Skills" />
+        </AssociationSet>
+        <AssociationSet Name="SkillProficiency" Association="EmployeeData.Skill_Proficiency">
+          <End Role="Proficiency" EntitySet="Proficiencies" />
+          <End Role="Skill" EntitySet="Skills" />
+        </AssociationSet>
+        <AssociationSet Name="EmployeeProject" Association="EmployeeData.Employee_Project">
+          <End Role="Employee" EntitySet="Employees" />
+          <End Role="Project" EntitySet="Projects" />
+        </AssociationSet>
+        <AssociationSet Name="EmployeeCareer" Association="EmployeeData.Employee_Career">
+          <End Role="Employee" EntitySet="Employees" />
+          <End Role="Career" EntitySet="Careers" />
+        </AssociationSet>
+      </EntityContainer>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
