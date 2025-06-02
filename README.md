@@ -1,8 +1,10 @@
 # case-study
 Setup:
 1. Go to /projects directory
-2. Open a terminal
-3. Type: git clone https://github.com/acnandre/case-study.git
+2. Create a folder called "employeeapp"
+3. Right click employeeapp folder and click Open Integrated Terminal
+4. Type: git clone https://github.com/acnandre/case-study.git
+5. Type: npm i
 
 
 ## Application Details
