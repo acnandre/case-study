@@ -17,17 +17,17 @@ sap.ui.define([
             const sFirstName = oView.byId("firstNameInput").getValue();
             const sLastName = oView.byId("lastNameInput").getValue();
             const sAge = oView.byId("ageInput").getValue();
-            const dDateOfHire = new Date(oView.byId("dateOfHireInput").getValue());
+            const dDateOfHire = oView.byId("dateOfHireInput").getValue();
             const sCareerLevel = oView.byId("careerLevelInput").getValue();
             const sCurrentProject = oView.byId("currentProjectInput").getValue();
 
             /* Convert the date to proper format */
             if (dDateOfHire) {
-            var dDateOfHireFormatted = dDateOfHire.toLocaleDateString('en-US', {
+            var dDateOfHireFormatted =  new Date(dDateOfHire.toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: '2-digit',
                 day: '2-digit',
-              });
+              }));
               console.log(dDateOfHireFormatted);
             }
 
