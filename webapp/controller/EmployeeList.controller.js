@@ -22,12 +22,14 @@ sap.ui.define([
             const sCurrentProject = oView.byId("currentProjectInput").getValue();
 
             /* Convert the date to proper format */
+            if (dDateOfHire) {
             var dDateOfHireFormatted = dDateOfHire.toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: '2-digit',
                 day: '2-digit',
               });
-            console.log(dDateOfHireFormatted);
+              console.log(dDateOfHireFormatted);
+            }
 
             const aFilters = [];
             
