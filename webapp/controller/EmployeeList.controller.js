@@ -1,8 +1,11 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], function (Controller, Filter, FilterOperator) {
+    "sap/ui/model/FilterOperator",
+    "sap/m/MessageToast",
+    "sap/m/MessageBox",
+    "sap/ui/core/BusyIndicator"
+], function (Controller, Filter, FilterOperator, MessageToast, MessageBox, BusyIndicator) {
     "use strict";
 
     return Controller.extend("sapips.training.employeeapp.controller.EmployeeList", {
@@ -60,6 +63,58 @@ sap.ui.define([
             const oTable = oView.byId("tblEmployeeList");
             const oBinding = oTable.getBinding("items");
             oBinding.filter(aFilters);
-        }
+        },
+            /* Used to display message can be re used just call the function */ 
+
+            fnDisplayMsg: function (sMsg) {
+                MessageToast.show(sMsg);
+            },
+
+            /* Used to delete list of items in checkbox */ 
+           _onPressDelete:function(){
+
+            const oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+            let oModel = this.getOwnerComponent().getModel();
+            let oView = this.getView().byId("tblEmployeeList");
+            let aSelectedPaths = oView._aSelectedPaths;
+                if (aSelectedPaths.length != "0") {
+                    MessageBox.warning(oResourceBundle.getText("DeleteDialog.Content.Text"), {
+                    actions: [MessageBox.Action.YES, MessageBox.Action.CANCEL],
+                    emphasizedAction: MessageBox.Action.YES,
+                    onClose: function (sAction) {
+                        if (sAction == "YES") {
+                            aSelectedPaths.forEach(function (sPath) {
+                              BusyIndicator.show();
+                                oModel.remove(sPath, {
+                                      groupId: "grp1",
+                                      success: function () {
+                                        oView._aSelectedPaths.shift();
+                                        BusyIndicator.show(0);
+                                         setTimeout(function() {
+                                              BusyIndicator.hide();
+                                          }, 1000);
+                                        }.bind(this),
+                                        error: function (oError) {
+                                            this.modelCallError(oError);
+                                            MessageBox.error(oErrorText);
+                                            setTimeout(function() {
+                                                BusyIndicator.hide();
+                                            }, 1000);
+                                        }.bind(this)
+                                    });
+                                });
+                                oModel.submitChanges({
+                                    groupId: "grp1"
+                                });
+                            }
+                        },
+                        dependentOn: this.getView()
+                    });
+                } else {
+                    let sMsg = this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("Message.NoDataToBeDeleted");
+                    this.fnDisplayMsg(sMsg);
+                }
+        },
+
     });
 });
