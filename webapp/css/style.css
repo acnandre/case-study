@@ -1,1 +1,6 @@
 /* Enter your custom styles here */
+.zButtonRejectCustom{
+    --sapButton_Reject_Background: white;
+    --sapButton_Reject_BorderColor: red;
+    --sapButton_Reject_TextColor: red;
+}
