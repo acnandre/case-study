@@ -116,5 +116,12 @@ sap.ui.define([
                 }
         },
 
+        onPressAdd: function(oEvent) {
+            const oRouter = this.getOwnerComponent().getRouter();
+            //let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            //Navigate to Create page
+            oRouter.navTo("RouteCreatePage");
+        }
+
     });
 });
