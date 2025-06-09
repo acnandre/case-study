@@ -84,7 +84,6 @@ sap.ui.define([
                     onClose: function (sAction) {
                         if (sAction == "YES") {
                             aSelectedPaths.forEach(function (sPath) {
-                              BusyIndicator.show();
                                 oModel.remove(sPath, {
                                       groupId: "grp1",
                                       success: function () {
@@ -97,6 +96,7 @@ sap.ui.define([
                                         error: function (oError) {
                                             this.modelCallError(oError);
                                             MessageBox.error(oErrorText);
+                                            BusyIndicator.show(0);
                                             setTimeout(function() {
                                                 BusyIndicator.hide();
                                             }, 1000);
@@ -107,8 +107,7 @@ sap.ui.define([
                                     groupId: "grp1"
                                 });
                             }
-                        },
-                        dependentOn: this.getView()
+                        }
                     });
                 } else {
                     let sMsg = this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("Message.NoDataToBeDeleted");
