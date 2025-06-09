@@ -61,7 +61,7 @@ sap.ui.define([
             const oTable = oView.byId("tblEmployeeList");
             const oBinding = oTable.getBinding("items");
             oBinding.filter(aFilters);
-        }
+        },
         onPressEmployee: function (oEvent) {
         const oSelectedItem = oEvent.getSource();
         const oContext = oSelectedItem.getBindingContext();

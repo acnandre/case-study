@@ -122,7 +122,7 @@
         </columns>
         <!-- Column Items -->
         <items>
-            <ColumnListItem id="listEmployees" vAlign="Middle" type="Navigation" press=".onPressEmployee>
+            <ColumnListItem id="listEmployees" vAlign="Middle" type="Navigation" press=".onPressEmployee">
                 <cells>
                     <Text id="colEmpID" text="{EmployeeID}"/>
                     <Text id="colFName" text="{FirstName}"/>
