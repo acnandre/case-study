@@ -42,10 +42,10 @@ sap.ui.define([
                 aFilters.push(new Filter("EmployeeID", FilterOperator.Contains, sEmpId));
             }
             if (sFirstName) {
-                aFilters.push(new Filter("FirstName", FilterOperator.Contains, sFirstName));
+                aFilters.push(new Filter("tolower(${FirstName})", FilterOperator.Contains, sFirstName.toLowerCase()));
             }
             if (sLastName) {
-                aFilters.push(new Filter("LastName", FilterOperator.Contains, sLastName));
+                aFilters.push(new Filter("tolower(${LastName})", FilterOperator.Contains, sLastName.toLowerCase()));
             }
             if (sAge) {
                 aFilters.push(new Filter("Age", FilterOperator.EQ, parseInt(sAge)));
@@ -57,7 +57,7 @@ sap.ui.define([
                 aFilters.push(new Filter("CareerLevel", FilterOperator.Contains, parseInt(sCareerLevel)));
             }
             if (sCurrentProject) {
-                aFilters.push(new Filter("CurrentProject", FilterOperator.Contains, sCurrentProject));
+                aFilters.push(new Filter("tolower(${CurrentProject})", FilterOperator.Contains, sCurrentProject.toLowerCase()));
             }
 
             /* Apply filters to the table */
