@@ -35,11 +35,12 @@
                 <Label text="{i18n>dateOfHire}"/>
                 <DatePicker required="true"
                             showCurrentDateButton="true"
-                            valueFormat="dd.MM.yyyy"
+                            valueFormat="MM.dd.yyyy"
                             id="idDatePicker"
                             value="{
                                    path: 'date>/dDefaultDate',
-                                   type: 'sap.ui.model.type.Date'
+                                   type: 'sap.ui.model.type.Date',
+                                   formatOptions: { pattern: 'MM.dd.yyyy' }
                                    }"
                             maxDate="{date>/dMaxDate}"
                             liveChange="onLiveChangeEmployee"
