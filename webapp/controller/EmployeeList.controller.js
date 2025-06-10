@@ -74,7 +74,7 @@ sap.ui.define([
         this._oRouter.navTo("Detail", {
             employeeId: sEmployeeID
         });
-      }
+      },
             /* Used to display message can be re used just call the function */ 
 
             fnDisplayMsg: function (sMsg) {

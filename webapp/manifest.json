@@ -95,12 +95,6 @@
         "viewPath": "sapips.training.employeeapp.view"
       },
       "routes": [
-
-          {
-              "pattern": "",
-              "name": "EmployeeList",
-              "target": "EmployeeList"
-          },
           {
               "pattern": "detail/{employeeId}",
               "name": "Detail",
@@ -110,32 +104,21 @@
               "pattern": "edit/{employeeId}",
               "name": "Edit",
               "target": "Edit"
-          }
-      ],
-      "targets": {
-          "EmployeeList": {
-              "viewName": "EmployeeList"
           },
-          "Detail": {
-              "viewName": "Detail"
+          {
+            "name": "RouteEmployeeList",
+            "pattern": "",
+            "target": [
+              "TargetEmployeeList"
+            ]
           },
-          "Edit": {
-              "viewName": "Edit"
+          {
+            "name": "RouteCreatePage",
+            "pattern": "Create",
+            "target": [
+              "TargetCreatePage"
+            ]
           }
-        {
-          "name": "RouteEmployeeList",
-          "pattern": "",
-          "target": [
-            "TargetEmployeeList"
-          ]
-        },
-        {
-          "name": "RouteCreatePage",
-          "pattern": "Create",
-          "target": [
-            "TargetCreatePage"
-          ]
-        }
       ],
       "targets": {
         "TargetEmployeeList": {
@@ -151,7 +134,14 @@
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false
-        }
+        },
+        "Detail": {
+          "viewName": "Detail"
+      },
+      "Edit": {
+          "viewName": "Edit"
+      }
+  
       }
     },
     "rootView": {
