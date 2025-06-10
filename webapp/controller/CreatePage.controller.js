@@ -233,7 +233,7 @@ sap.ui.define([
 
             //Set Default Date
             let oDate = new Date();
-            const oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "MMMM d, yyyy" });
+            const oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "MM.dd.yyyy" });
             let sFormattedDate = oDateFormat.format(oDate);
             this.getView().byId("idDatePicker").setValue(sFormattedDate);
 
