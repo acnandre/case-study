@@ -349,12 +349,22 @@ sap.ui.define([
                     
                 };
             };
+
+            //Convert date to proper format (Andre)
+            const oDate = new Date(sDate);
+        
+            const sFormattedDate = [
+                String(oDate.getMonth() + 1).padStart(2, '0'), // MM
+                String(oDate.getDate()).padStart(2, '0'),      // DD
+                oDate.getFullYear()                            // YYYY
+            ].join('/');
+
             //Save to Employees
             let oNewEmployee = {
                 "FirstName": sFirstName,
                 "LastName": sLastName,
                 "Age": nAge,
-                "DateHire": sDate,
+                "DateHire": sFormattedDate,
                 "CareerLevel": sCareers,
                 "CurrentProject": sProjects,
                 "EmployeeID": sEmpyloyeeID
