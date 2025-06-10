@@ -10,6 +10,7 @@ sap.ui.define([
 
     return Controller.extend("sapips.training.employeeapp.controller.EmployeeList", {
         onInit: function () {
+            this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         },
 
         onSearch: function () {
@@ -64,6 +65,16 @@ sap.ui.define([
             const oBinding = oTable.getBinding("items");
             oBinding.filter(aFilters);
         },
+
+        onPressEmployee: function (oEvent) {
+        const oSelectedItem = oEvent.getSource();
+        const oContext = oSelectedItem.getBindingContext();
+        const sEmployeeID = oContext.getProperty("EmployeeID");
+    
+        this._oRouter.navTo("Detail", {
+            employeeId: sEmployeeID
+        });
+      }
             /* Used to display message can be re used just call the function */ 
 
             fnDisplayMsg: function (sMsg) {
@@ -121,6 +132,7 @@ sap.ui.define([
             //Navigate to Create page
             oRouter.navTo("RouteCreatePage");
         }
+
 
     });
 });

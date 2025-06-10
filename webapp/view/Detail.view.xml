@@ -1,0 +1,107 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" controllerName="sapips.training.employeeapp.controller.Detail">
+
+    <Page id="detailPage" showHeader="false">
+
+        <content>
+            <Toolbar id="headerToolbar1" class="sapUiSmallMarginBottom">
+                <Button id="btnBack2" icon="sap-icon://nav-back" press=".onBack"/>
+                <Title id="pageTitle1" text="{i18n>title}" level="H2"/>
+            </Toolbar>
+            <VBox width="100%" direction="Column" id="vbox0" backgroundDesign="Solid">
+            <items>
+                <ObjectHeader title="{FirstName} {LastName}" id="header0">
+                    <attributes>
+                        <ObjectAttribute text="Career Level: CL{CareerLevel}" id="attribute0"/>
+                    </attributes>
+                </ObjectHeader>
+                <IconTabBar id="employeeTabs1" select=".onTabSelect" class="sapUiResponsiveContentPadding" backgroundDesign="Transparent" expandable="false">
+
+                    <!-- Tab 1: Employee Info -->
+                    <items>
+                        <IconTabFilter id="tabEmployeeInfo1" key="employeeInfo" design="Vertical" text="{i18n>employeeInfo}">
+                            <VBox id="vboxEmployeeInfo1" class="sapUiSmallMarginTop" width="100%" >
+                                <Title id="txtEmployeeInfoHeader1" text="{i18n>employeeInfo}" level="H1" class="sapUiSmallMarginBottom"/>
+
+                                <VBox id="vboxEmployeeData1" width="100%">
+                                    <HBox id="hboxEmployeeID1" width="100%" alignItems="Center" justifyContent="Start">
+                                        <Text id="lblEmployeeIDLabel1" text="{i18n>employeeID}" width="9rem" textAlign="Right"/>
+                                        <Text id="lblEmployeeIDColon1" text=":" width="1rem" textAlign="Center"/>
+                                        <Text id="valEmployeeID1" text="{EmployeeID}"/>
+                                    </HBox>
+                                    <HBox id="hboxFirstName1" width="100%" alignItems="Center" justifyContent="Start">
+                                        <Text id="lblFirstNameLabel1" text="{i18n>firstName}" width="9rem" textAlign="Right"/>
+                                        <Text id="lblFirstNameColon1" text=":" width="1rem" textAlign="Center"/>
+                                        <Text id="valFirstName1" text="{FirstName}"/>
+                                    </HBox>
+                                    <HBox id="hboxLastName1" width="100%" alignItems="Center" justifyContent="Start">
+                                        <Text id="lblLastNameLabel1" text="{i18n>lastName}" width="9rem" textAlign="Right"/>
+                                        <Text id="lblLastNameColon1" text=":" width="1rem" textAlign="Center"/>
+                                        <Text id="valLastName1" text="{LastName}"/>
+                                    </HBox>
+                                    <HBox id="hboxAge1" width="100%" alignItems="Center" justifyContent="Start">
+                                        <Text id="lblAgeLabel1" text="{i18n>age}" width="9rem" textAlign="Right"/>
+                                        <Text id="lblAgeColon1" text=":" width="1rem" textAlign="Center"/>
+                                        <Text id="valAge1" text="{Age}"/>
+                                    </HBox>
+                                    <HBox id="hboxDateHire1" width="100%" alignItems="Center" justifyContent="Start">
+                                        <Text id="lblDateHireLabel1" text="{i18n>dateHire}" width="9rem" textAlign="Right"/>
+                                        <Text id="lblDateHireColon1" text=":" width="1rem" textAlign="Center"/>
+                                        <Text id="valDateHire1" text="{DateHire}"/>
+                                    </HBox>
+                                    <HBox id="hboxCareerLevel1" width="100%" alignItems="Center" justifyContent="Start">
+                                        <Text id="lblCareerLevelLabel1" text="{i18n>careerLevel}" width="9rem" textAlign="Right"/>
+                                        <Text id="lblCareerLevelColon1" text=":" width="1rem" textAlign="Center"/>
+                                        <Text id="valCareerLevel1" text="{CareerLevel}"/>
+                                    </HBox>
+                                    <HBox id="hboxCurrentProject1" width="100%" alignItems="Center" justifyContent="Start">
+                                        <Text id="lblCurrentProjectLabel1" text="{i18n>currentProj}" width="9rem" textAlign="Right"/>
+                                        <Text id="lblCurrentProjectColon1" text=":" width="1rem" textAlign="Center"/>
+                                        <Text id="valCurrentProject1" text="{CurrentProject}"/>
+                                    </HBox>
+                                </VBox>
+                            </VBox>
+                        </IconTabFilter>
+
+                        <!-- Tab 2: Skills -->
+                        <IconTabFilter id="tabSkills1" key="skills" design="Vertical" text="{i18n>skills}">
+                            <VBox id="vboxSkills1" class="sapUiSmallMarginTop">
+                                <Title id="txtSkillsHeader1" text="{path: 'skills>/', formatter: '.formatSkillsTitle'}" level="H1" class="sapUiSmallMarginBottom"/>
+
+                                <Table id="skillsTableTab1" inset="false" items="{skills>/}">
+                                    <columns>
+                                        <Column id="skillColumnTab1">
+                                            <Text id="skillHeaderTab1" text="{i18n>skill}"/>
+                                        </Column>
+                                        <Column id="proficiencyColumnTab1">
+                                            <Text id="proficiencyHeaderTab1" text="{i18n>proficiency}"/>
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem id="skillRowItemTab1">
+                                            <cells>
+                                                <Text id="skillTextTab1" text="{skills>SkillDetail/SkillName}"/>
+                                                <Text id="proficiencyTextTab1" text="{skills>ProficiencyDetail/ProficiencyLevel}"/>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </VBox>
+                        </IconTabFilter>
+                    </items>
+                </IconTabBar>
+
+            </items>
+            </VBox>
+        </content>
+
+        <footer>
+            <Bar id="footerBar" design="Footer">
+                <contentRight>
+                    <Button id="btnEdit" text="{i18n>edit}" press=".onEdit" type="Emphasized" class="sapUiSmallMarginEnd"/>
+                    <Button id="btnCancel" text="{i18n>cancel}" press=".onCancel" type="Default"/>
+                </contentRight>
+            </Bar>
+        </footer>
+
+    </Page>
+</mvc:View>

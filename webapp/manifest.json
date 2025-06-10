@@ -95,6 +95,33 @@
         "viewPath": "sapips.training.employeeapp.view"
       },
       "routes": [
+
+          {
+              "pattern": "",
+              "name": "EmployeeList",
+              "target": "EmployeeList"
+          },
+          {
+              "pattern": "detail/{employeeId}",
+              "name": "Detail",
+              "target": "Detail"
+          },
+          {
+              "pattern": "edit/{employeeId}",
+              "name": "Edit",
+              "target": "Edit"
+          }
+      ],
+      "targets": {
+          "EmployeeList": {
+              "viewName": "EmployeeList"
+          },
+          "Detail": {
+              "viewName": "Detail"
+          },
+          "Edit": {
+              "viewName": "Edit"
+          }
         {
           "name": "RouteEmployeeList",
           "pattern": "",
