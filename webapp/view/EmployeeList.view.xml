@@ -89,7 +89,7 @@
         <headerToolbar>
             <Toolbar id="tbEmployeeList">
             <Text id="txtEmployeeList" text="{i18n>employees}" width="10vw"/>
-            <ToolbarSpacer id="tbSpacer" width="48vw"/>
+            <ToolbarSpacer id="tbSpacer" width="80vw"/>
             <!-- <SearchField id="srchEmployeeList" width="10vw"/> -->
             <Button id="btnAdd" text="{i18n>add}" press="onPressAdd"/>
             <Button id="btnDelete" text="{i18n>delete}" type="Reject" press="_onPressDelete"/>
