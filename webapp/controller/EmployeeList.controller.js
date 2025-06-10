@@ -24,16 +24,21 @@ sap.ui.define([
             const dDateOfHire = oView.byId("dateOfHireInput").getValue();
             const sCareerLevel = oView.byId("careerLevelInput").getValue();
             const sCurrentProject = oView.byId("currentProjectInput").getValue();
+            let dDateOfHireFormatted;
 
             /* Convert the date to proper format */
             if (dDateOfHire) {
-            var dDateOfHireFormatted =  new Date(dDateOfHire.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-              }));
-              console.log(dDateOfHireFormatted);
+                const oDate = new Date(dDateOfHire);
+            
+                const sFormattedDate = [
+                    String(oDate.getMonth() + 1).padStart(2, '0'), // MM
+                    String(oDate.getDate()).padStart(2, '0'),      // DD
+                    oDate.getFullYear()                            // YYYY
+                ].join('/');
+            
+                dDateOfHireFormatted = sFormattedDate;
             }
+            
 
             const aFilters = [];
             
