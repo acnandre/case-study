@@ -57,7 +57,7 @@ sap.ui.define([
         },
 
         onCancel() {
-            this._oRouter.navTo("EmployeeList");
+            this._oRouter.navTo("RouteEmployeeList");
         },
 
         onEdit() {
