@@ -1,0 +1,58 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+	<Dialog
+		id="idSkillProfDialog"
+		title="{i18n>skillAndProficiency}">
+		<content>
+			<!-- <VBox class="sapUiSmallMargin" id="formContainer" items="{
+					path: '/forms'
+				}"> -->
+				<f:SimpleForm id="isSimpleFormDialog"
+					editable="true"
+					layout="ColumnLayout"
+					columnsM="2"
+					columnsL="2"
+					columnsXL="2">
+					<f:content>
+						<core:Title text="{i18n>selectSkillAndProficiency}" />
+						<Label text="{i18n>skill}" />
+						<ComboBox required="true" 
+                          id="idComboBoxSkill" 
+                          change="onHandleComboChange"
+                          placeholder="{i18n>enterValue}"
+                          loadItems="onHandleLoadItems"
+                          items="{ path: 'oModelJSON>/SkillCatalog' }">
+                            <core:ListItem key="{oModelJSON>SkillID}" text="{oModelJSON>SkillName}"></core:ListItem>
+                        </ComboBox>
+						<Label text="{i18n>proficiency}" />
+						<ComboBox required="true" 
+                          id="idComboBoxProficiency" 
+                          change="onHandleComboChange"
+                          placeholder="{i18n>enterValue}"
+                          loadItems="onHandleLoadItems"
+                          items="{ path: 'oModelJSON>/Proficiencies' }">
+                            <core:ListItem key="{oModelJSON>ProficiencyID}" text="{oModelJSON>ProficiencyLevel}"></core:ListItem>
+                        </ComboBox>
+					</f:content>
+				</f:SimpleForm>
+			<!-- </VBox> -->
+		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<Button type="Accept"
+                            id="idButtonSaveDlg"
+							press="onSaveDialog"
+							text="{i18n>save}" />
+					<Button id="idButtonCancelDlg"
+						text="{i18n>cancel}"
+						type="Reject"
+                        press="onCloseDialog" />
+				</content>
+			</Toolbar>
+		</footer>
+	</Dialog>
+</core:FragmentDefinition>

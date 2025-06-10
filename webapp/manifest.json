@@ -63,6 +63,12 @@
           "bundleName": "sapips.training.employeeapp.i18n.i18n"
         }
       },
+      "oModelJSON" : {
+          "type" : "sap.ui.model.json.JSONModel"
+      },
+      "oModelSkillProf" : {
+          "type" : "sap.ui.model.json.JSONModel"
+      },
       "": {
         "dataSource": "mainService",
         "preload": true,
@@ -89,6 +95,7 @@
         "viewPath": "sapips.training.employeeapp.view"
       },
       "routes": [
+
           {
               "pattern": "",
               "name": "EmployeeList",
@@ -115,6 +122,36 @@
           "Edit": {
               "viewName": "Edit"
           }
+        {
+          "name": "RouteEmployeeList",
+          "pattern": "",
+          "target": [
+            "TargetEmployeeList"
+          ]
+        },
+        {
+          "name": "RouteCreatePage",
+          "pattern": "Create",
+          "target": [
+            "TargetCreatePage"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetEmployeeList": {
+          "viewId": "EmployeeList",
+          "viewName": "EmployeeList",
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false
+        },
+        "TargetCreatePage": {
+          "viewId": "CreatePage",
+          "viewName": "CreatePage",
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false
+        }
       }
     },
     "rootView": {
