@@ -1,0 +1,120 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+          xmlns="sap.m" 
+          xmlns:core="sap.ui.core"
+          xmlns:f="sap.ui.layout.form"
+          controllerName="sapips.training.employeeapp.controller.EditPage">
+    <Page id="editPage2"
+          title="{i18n>titleEditPage}">
+        <f:SimpleForm id="idEditForm">
+            <f:content>
+                <Label text="{i18n>employeeID}"/>
+                <Input id="idEmployeeIDE"
+                       maxLength="50"
+                       value="{EmployeeID}"
+                       editable="false"/>
+                <Label text="{i18n>firstName}"/>
+                <Input id="idInputNameE"
+                       required="true"
+                       maxLength="32"
+                       placeholder="{i18n>enterValue}"
+                       valueStateText="{i18n>containsAlphabet}"
+                       liveChange="onLiveChangeEmployee"
+                       value="{FirstName}"/>                       
+                <Label text="{i18n>lastName}" />
+                <Input id="idLastNameE"
+                       required="true"
+                       maxLength="32"
+                       valueStateText="{i18n>containsAlphabet}"
+                       placeholder="{i18n>enterValue}"
+                       liveChange="onLiveChangeEmployee"
+                       value="{LastName}" />
+                <Label text="Age"/>
+                <Input id="idAgeE"
+                       required="true"
+                       type="Number" 
+                       valueStateText="{i18n>mustBe90}"
+                       placeholder="{i18n>enterValue}"
+                       liveChange="onLiveChange"
+                       value="{Age}" />
+                <Label text="{i18n>dateOfHire}"/>
+                <DatePicker required="true"
+                            showCurrentDateButton="true"
+                            valueFormat="dd.MM.yyyy"
+                            id="idDatePickerE"
+                            value="{DateHire}"
+                            maxDate="{date>/dMaxDate}"
+                            liveChange="onLiveChangeEmployee"
+                            change="onLiveChangeEmployee"/>
+                <Label text="Career Level"/>
+                <ComboBox required="true"
+                          id="idComboBoxCareersE"
+                          value="{CareerLevel}"
+                          change="onHandleComboChange"
+                          placeholder="{i18n>enterValue}"
+                          items="{
+			         path: '/Careers' 
+		               }" >
+                     <core:ListItem key="{CareerID}" text="{CareerLevel}"/>
+                </ComboBox>
+                <Label text="{i18n>currentProject}"/>
+                <ComboBox required="true" 
+                          id="idComboBoxProjectsE" 
+                          value="{CurrentProject}"
+                          change="onHandleComboChange"
+                          placeholder="{i18n>enterValue}"
+                          items="{ path: '/Projects' }">
+                     <core:ListItem key="{ProjectID}" text="{ProjectName}"></core:ListItem>
+                </ComboBox>
+            </f:content>
+        </f:SimpleForm>
+        <Table id="idSkillsTableE"
+		 inset="false"
+               items="{skills>/}"
+               mode="MultiSelect">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="{i18n>skills}" level="H2"/>
+					<ToolbarSpacer />
+					<Button text = "{i18n>add}"
+                                           id="idAddforEditPage"
+                                           press=".onOpenPopoverDialog"
+			                      class="sapUiMediumMargin"
+			                      ariaHasPopup="Dialog" />
+                                   <Button class = "zButtonRejectCustomE"
+                                           text = "{i18n>delete}" 
+                                           id="idDeleteforEditPage"
+                                           press="onSkillDelete"
+                                           type="Reject"/>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column >
+				<Text text="{i18n>skill}" />
+			</Column>
+			<Column >
+				<Text text="{i18n>proficiency}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<!--ObjectIdentifier
+						title="{oModelSkillProf>SkillName}"/>
+					<Text text="{oModelSkillProf>ProficiencyLevel}" /-->
+                                   <Text id="skillTextTab1E" text="{skills>SkillDetail/SkillName}"/>
+                                   <Text id="proficiencyTextTab1E" text="{skills>ProficiencyDetail/ProficiencyLevel}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+       <footer>
+	       <Toolbar>
+		       <ToolbarSpacer/>
+			<Button type="Emphasized" text="Save" id="idEditButtonSave" press="onEditSave"/>
+			<Button text="Cancel" id="idCrtButtonCancelE" press="onEditCancel" />
+		</Toolbar>
+	</footer>
+    </Page>
+</mvc:View>

@@ -3,8 +3,9 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/model/json/JSONModel",
-    "sap/m/MessageToast"
-], (BaseController, Filter, FilterOperator, JSONModel, MessageToast) => {
+    "sap/m/MessageToast",
+    "sap/ui/core/routing/History"
+], (BaseController, Filter, FilterOperator, JSONModel, MessageToast, History) => {
     "use strict";
 
     return BaseController.extend("sapips.training.employeeapp.controller.Detail", {
@@ -57,11 +58,31 @@ sap.ui.define([
         },
 
         onCancel() {
-            this._oRouter.navTo("EmployeeList");
+            this._oRouter.navTo("RouteEmployeeList");
+        },
+        onBack: function() {
+            var oHistory = History.getInstance();
+            var sPreviousHash = oHistory.getPreviousHash();
+            var oRouter = this.getOwnerComponent().getRouter();
+
+            if (sPreviousHash !== undefined) {
+                window.history.go(-1);
+            } else {
+                oRouter.navTo("RouteEmployeeList",{},true);
+            }
         },
 
-        onEdit() {
-            // TODO: implement edit logic here
+        onEdit: function() {
+            //const oSelectedItem = oEvent.getSource();
+            //const oContext = oSelectedItem.getBindingContext();
+            //var sEmpText = this.getView().byID("valEmployeeID1");
+            var sEmployeeID = this.getView().byId("valEmployeeID1").getText();            
+            var oRouter = this.getOwnerComponent().getRouter();
+    
+            oRouter.navTo("RouteEditPage",{
+                employeeId: sEmployeeID
+            });
+                
         }
     });
 });

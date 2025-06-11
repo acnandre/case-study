@@ -44,7 +44,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.136.1",
       "libs": {
@@ -102,8 +102,10 @@
           },
           {
               "pattern": "edit/{employeeId}",
-              "name": "Edit",
-              "target": "Edit"
+              "name": "RouteEditPage",
+              "target": [ 
+                "TargetEditPage"
+              ]
           },
           {
             "name": "RouteEmployeeList",
@@ -138,8 +140,8 @@
         "Detail": {
           "viewName": "Detail"
       },
-      "Edit": {
-          "viewName": "Edit"
+      "TargetEditPage": {
+          "viewName": "EditPage"
       }
   
       }
